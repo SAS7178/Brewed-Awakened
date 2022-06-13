@@ -124,15 +124,15 @@ const database = {
         id: 17, productId: 4, employeeId: 10, timestamp: 1612638112396
     }]
 }
-
 export const getProducts = () => {
+// create func to map each obj(product) of the (products) array of the (database) object and export it.
     return database.products.map(product => ({...product}))
 }
-
+// create func to map each obj(employee) of the (employees) array of the (database) object and export it.
 export const getEmployees = () => {
     return database.employees.map(employee => ({...employee}))
 }
-
+// create func to map each obj(order) of the (orders) array of the (database) object and export it.
 export const getOrders = () => {
     return database.orders.map(order => ({...order}))
 }

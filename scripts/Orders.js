@@ -31,7 +31,7 @@ const findemployee = (order, allEmployees) => {
     return orderEmployee
 } 
 
-
+//expoortable orders func creates interplated html string 
 export const Orders = () => {
     let html = ""
     html += "<ul>"
@@ -46,7 +46,7 @@ export const Orders = () => {
     }}
 
     html += "</ul>"
-
+//returns string
     return html
 } 
 
