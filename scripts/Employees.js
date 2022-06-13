@@ -1,3 +1,5 @@
+import { getOrders } from "./database.js"
+const orders = getOrders()
 //import employees map func 
 import { getEmployees } from "./database.js"
 //set to var
@@ -18,3 +20,31 @@ export const Employees = () => {
     return html
 }
 
+
+const employeeOrders = (employee) => {
+    let employeeOrders = 0
+
+    for (const order of orders) {
+        if (order.employeeId === employee.id) {
+           employeeOrders ++;
+        }
+    }// Return employee filled orders
+    return employeeOrders
+}
+
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        const itemClicked = clickEvent.target
+        if (itemClicked.id.startsWith("employee")) {
+            const [, employeeId] = itemClicked.id.split("--")
+
+            for (const employee of employees) {
+                if (employee.id === parseInt(employeeId)) {
+                const orderCount = employeeOrders(employee)
+                    window.alert(` ${employee.name} sold ${orderCount} products `)
+                }
+            }
+        }
+    }
+)
